@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Lenovo\\Desktop\\kursinis\\KursinisOOP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3675D712-DDA3-4097-955F-2C16F833FDA8}|KursinisOOP\\KursinisOOP.pyproj|C:\\Users\\Lenovo\\Desktop\\kursinis\\KursinisOOP\\KursinisOOP\\KursinisOOP.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3675D712-DDA3-4097-955F-2C16F833FDA8}|KursinisOOP\\KursinisOOP.pyproj|solutionrelative:KursinisOOP\\KursinisOOP.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KursinisOOP.py",
+              "DocumentMoniker": "C:\\Users\\Lenovo\\Desktop\\kursinis\\KursinisOOP\\KursinisOOP\\KursinisOOP.py",
+              "RelativeDocumentMoniker": "KursinisOOP\\KursinisOOP.py",
+              "ToolTip": "C:\\Users\\Lenovo\\Desktop\\kursinis\\KursinisOOP\\KursinisOOP\\KursinisOOP.py",
+              "RelativeToolTip": "KursinisOOP\\KursinisOOP.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-03T09:16:19.419Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
