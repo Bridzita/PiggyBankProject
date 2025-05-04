@@ -27,14 +27,7 @@ def add_new_user(system: PiggyBankSystem):
         last_name = input("Įveskite vartotojo pavardę: ")
         try:
             RegularUser._validate_string_input(last_name, "Pavardė")
-            temp_user = RegularUser(first_name, last_name, 0.0)
-            try:
-                system.add_user(temp_user)
-                system.users.pop()
-                break
-            except ValueError as e:
-                print(e)
-                continue
+            break
         except ValueError as e:
             print(e)
 
