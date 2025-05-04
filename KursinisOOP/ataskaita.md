@@ -1,53 +1,53 @@
-# Taupyklës Programos Ataskaita
+ï»¿# PiggyBank report
 
-## 1. Ávadas
+## 1. Ä®vadas
 
-### a. Kas yra jûsø aplikacija?
+### Kas yra jÅ«sÅ³ aplikacija?
 
-Taupyklës aplikacija yra konsolës programa, skirta padëti vartotojams valdyti savo santaupas. Ji leidşia vartotojams susikurti paskyras, nustatyti taupymo tikslus, áneğti ir iğimti pinigus bei stebëti savo progresà vizualiai per gyvûno kompanionà. Aplikacija naudoja JSON failà vartotojo duomenims iğsaugoti, uştikrinant, kad informacija iğlieka tarp sesijø.
+PiggyBank aplikacija yra konsolÄ—s programa, skirta padÄ—ti vartotojams valdyti savo santaupas. Ji leidÅ¾ia vartotojams susikurti paskyras, nustatyti taupymo tikslus, Ä¯neÅ¡ti ir iÅ¡imti pinigus bei stebÄ—ti savo progresÄ… vizualiai per gyvÅ«no kompanionÄ…. Aplikacija naudoja JSON failÄ… vartotojo duomenims iÅ¡saugoti, uÅ¾tikrinant, kad informacija iÅ¡lieka tarp sesijÅ³.
 
-### b. Kaip paleisti programà?
+### Kaip paleisti programÄ…?
 
-1.  Ásitikinkite, kad turite ádiegtà Python 3.x.
-2.  Iğsaugokite visus pateiktus Python failus (`Design.py`, `KursinisOOP.py`, `models.py`, `system.py`, `storage.py`) ir failà `users.json` tame paèiame aplanke.
-3.  Atidarykite terminalà arba komandinæ eilutæ ir eikite á aplankà, kuriame yra failai.
-4.  Paleiskite programà vykdydami komandà: `python KursinisOOP.py`
+1.  Ä®sitikinkite, kad turite Ä¯diegtÄ… Python 3.x.
+2.  IÅ¡saugokite visus pateiktus Python failus (`Design.py`, `KursinisOOP.py`, `models.py`, `system.py`, `storage.py`) ir failÄ… `users.json` tame paÄiame aplanke.
+3.  Atidarykite terminalÄ… arba komandinÄ™ eilutÄ™ ir eikite Ä¯ aplankÄ…, kuriame yra failai.
+4.  Paleiskite programÄ… vykdydami komandÄ…: `python KursinisOOP.py`
 
-### c. Kaip naudotis programa?
+### Kaip naudotis programa?
 
-1.  Paleidus programà, bus parodytas meniu su ğiomis parinktimis:
-    * `1. Pridëti naujà vartotojà`
-    * `2. Rasti vartotojà pagal kodà`
-    * `3. Ásidëti pinigø`
-    * `4. Iğimti pinigø`
-    * `5. Perşiûrëti vartotojo progresà`
-    * `6. Iğeiti`
-2.  Áveskite skaièiø, atitinkantá norimà veiksmà.
-3.  Vykdykite raginimus ávesti reikiamà informacijà, pvz., vartotojo duomenis, vartotojo kodà arba pinigø sumà.
-4.  Norëdami iğeiti iğ programos, pasirinkite 6 parinktá.
+1.  Paleidus programÄ…, bus parodytas meniu su Å¡iomis parinktimis:
+    * `1. PridÄ—ti naujÄ… vartotojÄ…`
+    * `2. Rasti vartotojÄ… pagal kodÄ…`
+    * `3. Ä®sidÄ—ti pinigÅ³`
+    * `4. IÅ¡imti pinigÅ³`
+    * `5. PerÅ¾iÅ«rÄ—ti vartotojo progresÄ…`
+    * `6. IÅ¡eiti`
+2.  Ä®veskite skaiÄiÅ³, atitinkantÄ¯ norimÄ… veiksmÄ….
+3.  IÅ¡bandykite visas parinktis, kad pamatytumÄ—te kaip viskas veikia.
+4.  NorÄ—dami iÅ¡eiti iÅ¡ programos, pasirinkite 6 parinktÄ¯.
 
-## 2. Pagrindinë dalis / Analizë
+## 2. PagrindinÄ— dalis / AnalizÄ—
 
-### a. Paaiğkinkite, kaip programa apima (ágyvendina) funkcinius reikalavimus
+### Kaip programa apima (Ä¯gyvendina) funkcinius reikalavimus
 
-#### OOP ramsèiai
+#### OOP principai
 
 * **Polimorfizmas:**
-    * **Paaiğkinimas:** Polimorfizmas leidşia skirtingø klasiø objektus traktuoti kaip bendro tipo objektus. Ğioje aplikacijoje polimorfizmas demonstruojamas per `User` abstraktø pagrindiná klasæ ir jos poklasá `RegularUser`. `PiggyBankSystem` gali apdoroti `User` objektus, neatsişvelgiant á jø konkretø tipà.
+    * **PaaiÅ¡kinimas:** Polimorfizmas leidÅ¾ia skirtingÅ³ klasiÅ³ objektus traktuoti kaip bendro tipo objektus. Å ioje aplikacijoje polimorfizmas demonstruojamas per `User` abstraktÅ³ pagrindinÄ¯ klasÄ™ ir jos poklasÄ¯ `RegularUser`. `PiggyBankSystem` gali apdoroti `User` objektus, neatsiÅ¾velgiant Ä¯ jÅ³ konkretÅ³ tipÄ….
     * **Kodo fragmentas:**
         ```python
         # system.py
         def add_user(self, user: User):
             if not isinstance(user, User):
                 raise TypeError(
-                    "Pridedamas vartotojas turi bûti User tipo objektas."
+                    "Pridedamas vartotojas turi bÅ«ti User tipo objektas."
                 )
             # ...
         ```
-    * **Panaudojimas:** `add_user` funkcija `PiggyBankSystem` klasëje priima `User` objektà. Tai leidşia sistemai pridëti bet kokio tipo vartotojà (ğiuo metu tik `RegularUser`, bet gali bûti iğplësta).
+    * **Panaudojimas:** `add_user` funkcija `PiggyBankSystem` klasÄ—je priima `User` objektÄ…. Tai leidÅ¾ia sistemai pridÄ—ti bet kokio tipo vartotojÄ… (Å¡iuo metu tik `RegularUser`, bet gali bÅ«ti iÅ¡plÄ—sta).
 
 * **Abstrakcija:**
-    * **Paaiğkinimas:** Abstrakcija apima sudëtingø sistemø supaprastinimà modeliuojant klases, atitinkanèias problemà, ir dirbant tinkamu detalumo lygiu. `User` klasë yra abstrakti klasë, apibrëşianti bendrà sàsajà visiems vartotojø tipams (pvz., `add_money`, `remove_money`, `get_progress`), bet paliekanti `_generate_unique_code`, `_choose_animal_type`, `to_dict` ir `from_dict` ágyvendinimà konkreèiai `RegularUser` klasei.
+    * **PaaiÅ¡kinimas:** Abstrakcija apima sudÄ—tingÅ³ sistemÅ³ supaprastinimÄ… modeliuojant klases, atitinkanÄias problemÄ…, ir dirbant tinkamu detalumo lygiu. `User` klasÄ— yra abstrakti klasÄ—, apibrÄ—Å¾ianti bendrÄ… sÄ…sajÄ… visiems vartotojÅ³ tipams (pvz., `add_money`, `remove_money`, `get_progress`), bet paliekanti `_generate_unique_code`, `_choose_animal_type`, `to_dict` ir `from_dict` Ä¯gyvendinimÄ… konkreÄiai `RegularUser` klasei.
     * **Kodo fragmentas:**
         ```python
         # models.py
@@ -60,30 +60,30 @@ Taupyklës aplikacija yra konsolës programa, skirta padëti vartotojams valdyti sa
             def _choose_animal_type(self) -> str:
                 pass
 
-            # ... kitos abstrakèios metodai
+            # ... kitos abstrakÄios metodai
         ```
-    * **Panaudojimas:** `PiggyBankSystem` naudotojai sàveikauja su `User` objektais per tokius metodus kaip `deposit_money`, neávesdami á konkreèias operacijø atlikimo detales `RegularUser`.
+    * **Panaudojimas:** `PiggyBankSystem` naudotojai sÄ…veikauja su `User` objektais per tokius metodus kaip `deposit_money`, neÄ¯vesdami Ä¯ konkreÄias operacijÅ³ atlikimo detales `RegularUser`.
 
 * **Paveldimumas:**
-    * **Paaiğkinimas:** Paveldimumas leidşia naujoms klasëms perimti esamø klasiø savybes ir metodus. `RegularUser` klasë paveldi iğ `User` klasës. Tai sukuria "yra-a" ryğá (`RegularUser` yra `User`). `RegularUser` gauna visà pagrindinæ vartotojo funkcionalumà ir prideda savo specifinius ágyvendinimus.
+    * **PaaiÅ¡kinimas:** Paveldimumas leidÅ¾ia naujoms klasÄ—ms perimti esamÅ³ klasiÅ³ savybes ir metodus. `RegularUser` klasÄ— paveldi iÅ¡ `User` klasÄ—s. Tai sukuria "yra-a" ryÅ¡Ä¯ (`RegularUser` yra `User`). `RegularUser` gauna visÄ… pagrindinÄ™ vartotojo funkcionalumÄ… ir prideda savo specifinius Ä¯gyvendinimus.
     * **Kodo fragmentas:**
         ```python
         # models.py
         class RegularUser(User):
             def _generate_unique_code(self) -> str:
-                # ... ágyvendinimas
+                # ... Ä¯gyvendinimas
                 pass
 
             def _choose_animal_type(self) -> str:
-                # ... ágyvendinimas
+                # ... Ä¯gyvendinimas
                 pass
 
             # ...
         ```
-    * **Panaudojimas:** `RegularUser` paveldi `first_name`, `last_name`, `savings_goal`, `balance` ir tokius metodus kaip `add_money` ir `remove_money` iğ `User`, bet pateikia savo ágyvendinimus unikalaus kodo generavimui ir gyvûno tipo pasirinkimui.
+    * **Panaudojimas:** `RegularUser` paveldi `first_name`, `last_name`, `savings_goal`, `balance` ir tokius metodus kaip `add_money` ir `remove_money` iÅ¡ `User`, bet pateikia savo Ä¯gyvendinimus unikalaus kodo generavimui ir gyvÅ«no tipo pasirinkimui.
 
-* **Ákapsuliavimas:**
-    * **Paaiğkinimas:** Ákapsuliavimas yra duomenø (atributø) ir metodø, kurie veikia su tais duomenimis, susiejimas á vienà vienetà (klasæ). Tai taip pat apima prieigos prie kai kuriø objekto komponentø apribojimà. Python kalboje ákapsuliavimas pasiekiamas per pavadinimø suteikimo taisykles (atributø prefiksavimas vienu arba dviem pabraukimais).
+* **Inkapsuliavimas:**
+    * **PaaiÅ¡kinimas:** Inkapsuliavimas yra duomenÅ³ (atributÅ³) ir metodÅ³, kurie veikia su tais duomenimis, susiejimas Ä¯ vienÄ… vienetÄ… (klasÄ™). Tai taip pat apima prieigos prie kai kuriÅ³ objekto komponentÅ³ apribojimÄ…. Python kalboje Ä¯kapsuliavimas pasiekiamas per pavadinimÅ³ suteikimo taisykles (atributÅ³ prefiksavimas vienu arba dviem pabraukimais).
     * **Kodo fragmentas:**
         ```python
         # models.py
@@ -96,12 +96,12 @@ Taupyklës aplikacija yra konsolës programa, skirta padëti vartotojams valdyti sa
                 self._animal_type = self._choose_animal_type()
                 # ...
         ```
-    * **Panaudojimas:** `_first_name`, `_last_name`, `_balance`, `_user_code` ir `_animal_type` atributai yra ákapsuliuoti `User` klasëje. Jie skirti pasiekiami ir modifikuojami per klasës metodus (geteriai ir seteriai, jei reikia), o ne tiesiogiai iğ klasës iğorës, uştikrinant tam tikrà duomenø apsaugos lygá.
+    * **Panaudojimas:** `_first_name`, `_last_name`, `_balance`, `_user_code` ir `_animal_type` atributai yra Ä¯kapsuliuoti `User` klasÄ—je. Jie skirti pasiekiami ir modifikuojami per klasÄ—s metodus (geteriai ir seteriai, jei reikia), o ne tiesiogiai iÅ¡ klasÄ—s iÅ¡orÄ—s, uÅ¾tikrinant tam tikrÄ… duomenÅ³ apsaugos lygÄ¯.
 
-#### Dizaino Ğablonas
+#### Dizaino Å ablonas
 
-* **Factory Pattern (Fabriko Ğablonas):**
-    * **Paaiğkinimas:** Fabriko Ğablonas naudojamas objektams kurti nenurodant tikslios objekto, kuris bus sukurtas, klasës. `UserFactory` klasë apibûdina logikà, skirtà `User` objektams kurti. Tai leidşia lanksèiai kurti ávairiø tipø vartotojus ateityje nekeièiant kodo, kuris naudoja fabrikà jiems kurti.
+* **Factory Pattern (Fabriko Å ablonas):**
+    * **PaaiÅ¡kinimas:** Fabriko Å ablonas naudojamas objektams kurti nenurodant tikslios objekto, kuris bus sukurtas, klasÄ—s. `UserFactory` klasÄ— apibÅ«dina logikÄ…, skirtÄ… `User` objektams kurti. Tai leidÅ¾ia lanksÄiai kurti Ä¯vairiÅ³ tipÅ³ vartotojus ateityje nekeiÄiant kodo, kuris naudoja fabrikÄ… jiems kurti.
     * **Kodo fragmentas:**
         ```python
         # Design.py
@@ -113,32 +113,65 @@ Taupyklës aplikacija yra konsolës programa, skirta padëti vartotojams valdyti sa
                 user_type = data.get("type", "regular")
                 if user_type == "regular":
                     return RegularUser.from_dict(data)
-                raise ValueError(f"Neşinomas vartotojo tipas: {user_type}")
+                raise ValueError(f"NeÅ¾inomas vartotojo tipas: {user_type}")
         ```
-    * **Tinkamumas:** Fabriko Ğablonas yra tinkamas, nes jis atskiria objekto kûrimo logikà nuo likusios sistemos. Jei ateityje bus pridëta naujø vartotojø tipø (pvz., PremiumUser), `UserFactory` gali bûti iğplëstas juos kurti nekeièiant kodo, kuris naudoja fabrikà vartotojams kurti. Tai suteikia lankstesná ir lengviau prişiûrimà dizainà.
+    * **Tinkamumas:** Fabriko Å ablonas yra tinkamas, nes jis atskiria objekto kÅ«rimo logikÄ… nuo likusios sistemos. Jei ateityje bus pridÄ—ta naujÅ³ vartotojÅ³ tipÅ³ (pvz., PremiumUser), `UserFactory` gali bÅ«ti iÅ¡plÄ—stas juos kurti nekeiÄiant kodo, kuris naudoja fabrikÄ… vartotojams kurti. Tai suteikia lankstesnÄ¯ ir lengviau priÅ¾iÅ«rimÄ… dizainÄ….
 
 #### Kompozicija ir/arba Agregacija
 
-* **Kompozicija:**
-    * **Paaiğkinimas:** Kompozicija yra stipri asociacijos forma, kai vienas objektas yra kito objekto dalis. Sudëtinis objektas negali egzistuoti be já turinèio objekto. Ğioje aplikacijoje `PiggyBankSystem` *turi* `DataStorage`. `PiggyBankSystem` priklauso nuo `DataStorage`, kad veiktø, o `DataStorage` naudojamas tik `PiggyBankSystem`.
-    * **Kodo fragmentas:**
-        ```python
-        # system.py
-        class PiggyBankSystem:
-            def __init__(self, data_storage: DataStorage):
-                if not isinstance(data_storage, DataStorage):
-                    raise TypeError(
-                        "Netinkamas 'data_storage' tipas"
-                    )
-                self.users: List[User] = []
-                self.data_storage = data_storage
-                self.load_users()
-        ```
-    * **Panaudojimas:** `PiggyBankSystem` sudarytas iğ `DataStorage` objekto. Jis sukurtas su `DataStorage` egzemplioriumi ir remiasi juo ákeliant ir iğsaugant vartotojo duomenis. Sistema negali veikti be savo duomenø saugojimo mechanizmo.
+## ObjektÅ³ SÄ…veikos: Kompozicija ir Agregacija
 
-#### Skaitymas iğ failo ir rağymas á failà
+Å iame skyriuje aptarsime objektÅ³ sÄ…veikos principus, konkreÄiai kompozicijÄ… ir agregacijÄ…, ir kaip jie yra Ä¯gyvendinti taupymo sistemos kode.
 
-* **Paaiğkinimas:** Aplikacija naudoja `JsonDataStorage` vartotojo duomenims skaityti ir rağyti á JSON failà (`users.json`). Tai leidşia aplikacijai nuolat iğsaugoti vartotojo informacijà.
+### Kompozicija
+
+Kompozicija yra stiprus asociacijos tipas, kuriame vienas objektas (visuma) yra atsakingas uÅ¾ kito objekto (dalies) egzistavimÄ…. Dalies objektas negali egzistuoti be visumos objekto.
+
+* **PaaiÅ¡kinimas:** Kompozicija apibrÄ—Å¾ia "yra dalis" ryÅ¡Ä¯, kuriame dalis yra esminÄ— visumai. Sunaikinus visumÄ…, sunaikinamos ir jos dalys.
+* **Kodo fragmentas:**
+
+    ```python
+    # system.py
+    class PiggyBankSystem:
+
+        def __init__(self, data_storage: DataStorage):
+            if not isinstance(data_storage, DataStorage):
+                raise TypeError(
+                    "Netinkamas 'data_storage' tipas"
+                )
+            self.data_storage = data_storage
+            # ...
+    ```
+
+* **Panaudojimas:** `PiggyBankSystem` klasÄ— reikalauja `DataStorage` objekto savo inicijavimui. `PiggyBankSystem` yra atsakingas uÅ¾ `DataStorage` objekto naudojimÄ… duomenÅ³ iÅ¡saugojimui ir Ä¯kÄ—limui. Nors teoriÅ¡kai `PiggyBankSystem` gali veikti su skirtingais `DataStorage` tipais, jÅ³ santykis yra gana glaudus. Jei `PiggyBankSystem` objektas bÅ«tÅ³ sunaikintas, `DataStorage` objektas, kuris buvo naudojamas iÅ¡skirtinai su juo, taptÅ³ nenaudojamas Å¡ioje sistemoje. Tai atspindi kompozicijos principÄ…, kur `DataStorage` gyvavimas yra stipriai susijÄ™s su `PiggyBankSystem`.
+
+### Agregacija
+
+Agregacija yra silpnesnis asociacijos tipas, kuriame objektai yra susijÄ™, bet jÅ³ gyvavimo ciklai yra nepriklausomi. Vienas objektas (visuma) naudoja kitÄ… objektÄ… (dalÄ¯), bet dalis gali egzistuoti ir uÅ¾ visumos ribÅ³.
+
+* **PaaiÅ¡kinimas:** Agregacija apibrÄ—Å¾ia "turi a" ryÅ¡Ä¯, kuriame visuma naudoja dalÄ¯, bet dalis gali egzistuoti savarankiÅ¡kai.
+* **Kodo fragmentas:**
+
+    ```python
+    # system.py
+    class PiggyBankSystem:
+
+        def __init__(self, data_storage: DataStorage):
+            # ...
+            self.users: List[User] = []
+            # ...
+
+        def add_user(self, user: User):
+            # ...
+            self.users.append(user)
+            # ...
+    ```
+
+* **Panaudojimas:** `PiggyBankSystem` klasÄ— valdo `User` objektÅ³ sÄ…raÅ¡Ä…. TaÄiau `User` objektai (vartotojai) gali egzistuoti nepriklausomai nuo `PiggyBankSystem`. Vartotojo duomenys yra saugomi per `DataStorage` objektÄ… ir iÅ¡liks net jei `PiggyBankSystem` objektas bus sunaikintas. Tai rodo agregacijÄ…: `PiggyBankSystem` naudoja `User` objektus, bet nÄ—ra atsakingas uÅ¾ jÅ³ gyvavimo ciklÄ…. `User` objektai gali bÅ«ti naudojami kitose sistemose arba iÅ¡likti saugykloje nepriklausomai.
+
+#### Skaitymas iÅ¡ failo ir raÅ¡ymas Ä¯ failÄ…
+
+* **PaaiÅ¡kinimas:** Aplikacija naudoja `JsonDataStorage` vartotojo duomenims skaityti ir raÅ¡yti Ä¯ JSON failÄ… (`users.json`). Tai leidÅ¾ia aplikacijai nuolat iÅ¡saugoti vartotojo informacijÄ….
 * **Kodo fragmentas:**
     ```python
     # storage.py
@@ -147,43 +180,42 @@ Taupyklës aplikacija yra konsolës programa, skirta padëti vartotojams valdyti sa
             self.data_file = data_file
 
         def load_users(self) -> List['User']:
-            # ... ákelia vartotojus iğ json failo
+            # ... Ä¯kelia vartotojus iÅ¡ json failo
 
         def save_users(self, users: List['User']):
-            # ... iğsaugo vartotojus á json failà
+            # ... iÅ¡saugo vartotojus Ä¯ json failÄ…
     ```
-* **Panaudojimas:** `load_users` metodas nuskaito vartotojo duomenis iğ JSON failo, kai paleidşiama aplikacija, o `save_users` metodas árağo vartotojo duomenis á failà, kai atliekami pakeitimai (pvz., pridedamas vartotojas, áneğami pinigai).
+* **Panaudojimas:** `load_users` metodas nuskaito vartotojo duomenis iÅ¡ JSON failo, kai paleidÅ¾iama aplikacija, o `save_users` metodas Ä¯raÅ¡o vartotojo duomenis Ä¯ failÄ…, kai atliekami pakeitimai (pvz., pridedamas vartotojas, Ä¯neÅ¡ami pinigai).
 
 #### Testavimas
 
-* **Paaiğkinimas:** Pagrindinis aplikacijos funkcionalumas yra padengtas vienetiniais testais naudojant `unittest` karkasà. Testai pateikiami `models`, `system`, `storage` ir `Design` moduliams.
+* **PaaiÅ¡kinimas:** Pagrindinis aplikacijos funkcionalumas yra padengtas vienetiniais testais naudojant `unittest` karkasÄ…. Testai pateikiami `models`, `system`, `storage` ir `Design` moduliams.
 * **Failai:** `test_models.py`, `test_system.py`, `test_storage.py`, `test_Design.py`
-* **Panaudojimas:** Testai uştikrina, kad atskiri aplikacijos komponentai veiktø taip, kaip tikëtasi, apimant tokius atvejus kaip vartotojo kûrimas, duomenø validavimas, piniginës operacijos ir duomenø saugojimas.
+* **Panaudojimas:** Testai uÅ¾tikrina, kad atskiri aplikacijos komponentai veiktÅ³ taip, kaip tikÄ—tasi, apimant tokius atvejus kaip vartotojo kÅ«rimas, duomenÅ³ validavimas, piniginÄ—s operacijos ir duomenÅ³ saugojimas.
 
 #### Kodo stilius
 
-* **Paaiğkinimas:** Kodas atitinka PEP 8 stiliaus gaires, skatinantá skaitomumà ir nuoseklumà. Tai apima tinkamà átraukimà, pavadinimø suteikimo taisykles, eiluèiø ilgio apribojimus ir tarpø naudojimà.
-* **Árankiai/Linteriai (Nëra aiğkiai kode, bet numanoma):** Nors kode nëra, árankiai, tokie kaip `pylint` arba `flake8`, galëtø bûti naudojami PEP 8 atitikèiai uştikrinti.
-* **Panaudojimas:** Nuoseklus stilius palengvina kodo supratimà ir prieşiûrà tiek originaliam kûrëjui, tiek kitiems.
+* **PaaiÅ¡kinimas:** Kodas atitinka PEP 8 stiliaus gaires, skatinantÄ¯ skaitomumÄ… ir nuoseklumÄ…. 
+* **Ä®rankiai/Linteriai:** Kode buvo atliktas flake8 patikrinimas, kuris parodÄ—, kad yra vietÅ³, kurias galima patobulinti, kad kodas pilnai atitiktÅ³ PEP 8 stiliÅ³.
+* **Panaudojimas:** Nuoseklus stilius palengvina kodo supratimÄ… ir prieÅ¾iÅ«rÄ… tiek originaliam kÅ«rÄ—jui, tiek kitiems. Taip pat lengviau randamos/pamatomos klaidÅ³ vietos.
 
 ## 3. Rezultatai ir Apibendrinimas
 
-### a. Rezultatai
+###  Rezultatai
 
-* Aplikacija sëkmingai valdo vartotojø paskyras, leidşiant kurti, gauti ir modifikuoti vartotojo duomenis.
-* Vartotojo duomenys yra nuolat saugomi JSON faile, uştikrinant, kad duomenys iğlieka tarp sesijø.
-* Programa suteikia pagrindinæ komandinës eilutës sàsajà vartotojo sàveikai.
-* Vienetiniai testai buvo ágyvendinti siekiant patvirtinti pagrindiná aplikacijos funkcionalumà.
-* Aplikacija demonstruoja pagrindiniø OOP principø ir dizaino ğablono naudojimà siekiant lankstaus ir lengvai prişiûrimo dizaino.
+* Aplikacija sÄ—kmingai valdo vartotojÅ³ paskyras, leidÅ¾iant kurti, gauti ir modifikuoti vartotojo duomenis.
+* Vartotojo duomenys yra nuolat saugomi JSON faile, uÅ¾tikrinant, kad duomenys iÅ¡lieka tarp sesijÅ³.
+* Programa suteikia pagrindinÄ™ komandinÄ—s eilutÄ—s sÄ…sajÄ… vartotojo sÄ…veikai.
+* Vienetiniai testai buvo Ä¯gyvendinti siekiant patvirtinti pagrindinÄ¯ aplikacijos funkcionalumÄ….
+* Aplikacija demonstruoja pagrindiniÅ³ OOP principÅ³ ir dizaino Å¡ablono naudojimÄ… siekiant lankstaus ir lengvai priÅ¾iÅ«rimo dizaino.
 
-### b. Iğvados
+### IÅ¡vados
 
-Ğis projektas sukûrë funkcionuojanèià Taupyklës aplikacijà, kuri atitinka nurodytus reikalavimus. Aplikacija efektyviai naudoja OOP principus, dizaino ğablonà ir failø ávestá/iğvestá, kad suteiktø pagrindinæ vartotojo santaupø valdymo sistemà. Vienetiniø testø naudojimas padidina kodo patikimumà. Taip pat manau jei ğis projektas bûtø ágyvendintas sulauktu daug dëmesio iğ jaunimo pusës.
+Å is projektas sukÅ«rÄ— funkcionuojanÄiÄ… TaupyklÄ—s aplikacijÄ…, kuri atitinka nurodytus reikalavimus. Aplikacija efektyviai naudoja OOP principus, dizaino Å¡ablonÄ… ir failÅ³ Ä¯vestÄ¯/iÅ¡vestÄ¯, kad suteiktÅ³ pagrindinÄ™ vartotojo santaupÅ³ valdymo sistemÄ…. VienetiniÅ³ testÅ³ naudojimas padidina kodo patikimumÄ…. Taip pat manau jei Å¡is projektas bÅ«tÅ³ Ä¯gyvendintas sulauktu daug dÄ—mesio iÅ¡ jaunimo pusÄ—s.
 
-### c. Kaip bûtø galima iğplësti jûsø aplikacijà?
+### Kaip bÅ«tÅ³ galima iÅ¡plÄ—sti jÅ«sÅ³ aplikacijÄ…?
 
-* **Grafinë Vartotojo Sàsaja (GUI):** Vietoj komandinës eilutës sàsajos, galëtø bûti sukurta GUI, kad naudotojo patirtis bûtø patogesnë.
-* **Daugiau Vartotojø Tipø:** Aplikacija galëtø bûti iğplësta, kad palaikytø skirtingus vartotojø tipus (pvz., Premium vartotojai su papildomomis funkcijomis).
-* **Duomenø Bazës Integracija:** Didesnëms aplikacijoms duomenø bazë galëtø bûti naudojama vietoj JSON failo, kad bûtø efektyvesnis duomenø saugojimas ir gavimas.
-* **Iğplëstinë Analitika:** Aplikacija galëtø apimti funkcijas, suteikianèias vartotojams iğsamesnæ informacijà apie jø taupymo áproèius, pvz., diagramas ir grafikus.
-* **Tinklo Funkcionalumas:** Aplikacija galëtø bûti iğplësta, kad keli vartotojai galëtø pasiekti savo paskyras iğ skirtingø árenginiø.
+* **GrafinÄ— Vartotojo SÄ…saja (GUI):** Vietoj komandinÄ—s eilutÄ—s sÄ…sajos, galÄ—tÅ³ bÅ«ti sukurta GUI, kad naudotojo patirtis bÅ«tÅ³ patogesnÄ—.(Pvz. tkinter)
+* **Daugiau VartotojÅ³ TipÅ³:** Aplikacija galÄ—tÅ³ bÅ«ti iÅ¡plÄ—sta, kad palaikytÅ³ skirtingus vartotojÅ³ tipus tokius kaip PremiumUsers arba net tÄ—vus, kurie galÄ—tÅ³ stebÄ—ti vaikÅ³ taupymÄ…, jiem padÄ—ti arba pakontroliuoti..
+* **DuomenÅ³ BazÄ—s Integracija:** DidesnÄ—ms aplikacijoms duomenÅ³ bazÄ— galÄ—tÅ³ bÅ«ti naudojama vietoj JSON failo, kad bÅ«tÅ³ efektyvesnis duomenÅ³ saugojimas ir gavimas.
+* **IÅ¡plÄ—stinÄ— Analitika:** Aplikacija galÄ—tÅ³ apimti funkcijas, suteikianÄias vartotojams iÅ¡samesnÄ™ informacijÄ… apie jÅ³ taupymo Ä¯proÄius, pvz., diagramas ir grafikus.
