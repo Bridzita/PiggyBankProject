@@ -1,0 +1,29 @@
+[
+    {
+        "type": "regular",
+        "first_name": "Brigita",
+        "last_name": "\u0160maro",
+        "savings_goal": 100,
+        "balance": 0.0,
+        "user_code": "B\u01606341",
+        "animal_type": "cat"
+    },
+    {
+        "type": "regular",
+        "first_name": "Tadas",
+        "last_name": "Blinda",
+        "savings_goal": 10000.0,
+        "balance": 5000.0,
+        "user_code": "TB9612",
+        "animal_type": "dog"
+    },
+    {
+        "type": "regular",
+        "first_name": "Aiste",
+        "last_name": "Matelyte",
+        "savings_goal": 10051866.0,
+        "balance": 0.0,
+        "user_code": "AM8826",
+        "animal_type": "cat"
+    }
+]
