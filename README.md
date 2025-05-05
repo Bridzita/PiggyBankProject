@@ -2,7 +2,7 @@
 
 ## 1. Įvadas
 
-### Kas yra jūsų aplikacija?
+### Kas yra mano aplikacija?
 
 PiggyBank aplikacija yra konsolės programa, skirta padėti vartotojams valdyti savo santaupas. Ji leidžia vartotojams susikurti paskyras, nustatyti taupymo tikslus, įnešti ir išimti pinigus bei stebėti savo progresą vizualiai per gyvūno kompanioną. Aplikacija naudoja JSON failą vartotojo duomenims išsaugoti, užtikrinant, kad informacija išlieka tarp sesijų.
 
