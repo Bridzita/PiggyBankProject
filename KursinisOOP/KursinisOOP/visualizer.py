@@ -24,7 +24,9 @@ class AnimalVisualizer:
         else:
             stage = "stage_4.png"
 
-        path = os.path.join("images", animal_type.lower(), stage)
+        base_path = os.path.dirname(os.path.abspath(__file__))
+        images_path = os.path.join(base_path, "..", "images")
+        path = os.path.join(images_path, animal_type.lower(), stage)
         if os.path.exists(path):
             try:
                 img = Image.open(path)
